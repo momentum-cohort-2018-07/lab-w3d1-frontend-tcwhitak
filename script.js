@@ -135,3 +135,15 @@ return topNames
 }
 // 9. Create a function called passingStudents that takes a grades object
 // and returns an array of all the students with a D or better average.
+
+function passingStudents (grades){
+    let passedStudents = []
+    let studentLetters = finalLetterGrades (grades)
+for(let i = 0; i < Object.values(studentLetters).length; i++){
+    if (Object.values(studentLetters)[i] !== "F"){
+        passedStudents.push(Object.keys(studentLetters)[i])
+    }
+}
+
+    return passedStudents.sort()
+}
