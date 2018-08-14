@@ -110,9 +110,28 @@ function finalLetterGrades (grades){
 // 7. Create a function called classAverage that takes a grades object and
 // returns the average for the entire class.
 
+function classAverage (grades){
+    let studentAvgScore = Object.values(studentAverages(grades))
+    let classAvgScore = studentAvgScore.reduce(function (sum, score){
+        return sum + score
+    })/studentAvgScore.length
+    return classAvgScore
+
+}
+
 // 8. Create a function called topStudents that takes a grades object and a
 // number of students and returns an array of the names of the top N students,
 // where N is the number of students you gave to the function.
-
+function topStudents(grades, n){
+let namesSorted = Object.keys(studentAverages(grades)).sort(
+    function(a,b){
+        return studentAverages(grades)[b]-studentAverages(grades)[a]
+    })
+let topNames = []
+for(let i = 0; i < n; i++){
+topNames.push(namesSorted[i])
+}
+return topNames
+}
 // 9. Create a function called passingStudents that takes a grades object
 // and returns an array of all the students with a D or better average.
