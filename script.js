@@ -79,6 +79,20 @@ function studentAverages (grades){
 // 60-70 => D
 // < 60 => F
 
+function letterGrade (scoreGrade){
+    if(scoreGrade < 60){
+        return "F"
+    } else if (scoreGrade >= 60 && scoreGrade < 70){
+        return "D"
+    } else if (scoreGrade >= 70 && scoreGrade < 80){
+        return "C"
+    } else if (scoreGrade >= 80 && scoreGrade < 90){
+        return "B"
+    } else if (scoreGrade >= 90){
+        return "A"
+    }
+}
+
 // 6. Create a function called finalLetterGrades that takes a grades object
 // and returns a new object of students and their final letter grade, as
 // determined by their average.
