@@ -49,10 +49,26 @@ function assignmentAverageScore (grades, assignmentNum){
 // and returns a new object of students and their average score, like this:
 // { indiana: 90, nevada: 80, indigo: 83, ... }
 
-// function studentAverages (grades){
+function studentAverages (grades){
+    function toObject(names, avgScores) {
+        let result = {};
+        for (var i = 0; i < names.length; i++)
+             result[names[i]] = avgScores[i];
+        return result;
+    }
+    let names = Object.keys(grades)
+    let avgScores =[]
+    names.forEach(function(name){
+            avgScores.push(grades[name].reduce(function(total, grade){
+           let sumTotal = (total + grade)
+           return sumTotal
+           })
+       /grades[name].length)
+        })
 
-// }
+        return toObject(names, avgScores)
 
+}
 
 // 5. Create a function called letterGrade that returns a letter grade for a
 // numerical score. The second number is non-inclusive. For example, 90 is an 'A',
