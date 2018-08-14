@@ -49,13 +49,15 @@ function assignmentAverageScore (grades, assignmentNum){
 // and returns a new object of students and their average score, like this:
 // { indiana: 90, nevada: 80, indigo: 83, ... }
 
+//merge two arrays into object
+function combiObject(names, avgScores) {
+    let result = {};
+    for (let i = 0; i < names.length; i++)
+         result[names[i]] = avgScores[i];
+    return result;
+}
+
 function studentAverages (grades){
-    function toObject(names, avgScores) {
-        let result = {};
-        for (var i = 0; i < names.length; i++)
-             result[names[i]] = avgScores[i];
-        return result;
-    }
     let names = Object.keys(grades)
     let avgScores =[]
     names.forEach(function(name){
@@ -66,7 +68,7 @@ function studentAverages (grades){
        /grades[name].length)
         })
 
-        return toObject(names, avgScores)
+        return combiObject(names, avgScores)
 
 }
 
@@ -96,6 +98,14 @@ function letterGrade (scoreGrade){
 // 6. Create a function called finalLetterGrades that takes a grades object
 // and returns a new object of students and their final letter grade, as
 // determined by their average.
+
+function finalLetterGrades (grades){
+    let avgScore = Object.values(studentAverages(grades))
+    let names = Object.keys(studentAverages(grades))
+    let letters = avgScore.map(letterGrade)
+    return combiObject(names, letters)
+}
+
 
 // 7. Create a function called classAverage that takes a grades object and
 // returns the average for the entire class.
